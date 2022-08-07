@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Productos{% endblock %}
+
+{% block body %}
+    <h1>Product</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ product.id }}</td>
+            </tr>
+            <tr>
+                <th>Codigo</th>
+                <td>{{ product.code }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ product.name }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ product.description }}</td>
+            </tr>
+            <tr>
+                <th>Marca</th>
+                <td>{{ product.brand }}</td>
+            </tr>
+            <tr>
+                <th>Precio</th>
+                <td>{{ product.price }}</td>
+            </tr>
+            <tr>
+                <th>Fecha Creado</th>
+                <td>{{ product.createdAt ? product.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+<tr>
+                <th>Fecha Actu.</th>
+                <td>{{ product.updatedAt ? product.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_product_index') }}">Regresar Listado</a>
+
+    <a href="{{ path('app_product_edit', {'id': product.id}) }}">Editar</a>
+
+    {{ include('product/_delete_form.html.twig') }}
+{% endblock %}
